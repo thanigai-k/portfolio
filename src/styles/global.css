@@ -22,6 +22,7 @@
   font-style: normal;
   font-display: swap;
 }
+
 @theme {
   --background-color-canvas: hsl(0, 0%, 5%);
 
@@ -30,6 +31,16 @@
   --color-tertiary: hsl(0, 0%, 30%);
 
   --border-color-tertiary: hsl(0, 0%, 20%);
+}
+
+:root {
+  --background-color-canvas: hsl(0, 0%, 95%);
+
+  --color-primary: hsl(0, 0%, 15%);
+  --color-secondary: hsl(0, 0%, 30%);
+  --color-tertiary: hsl(0, 0%, 60%);
+
+  --border-color-tertiary: hsl(0, 0%, 80%);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -68,5 +79,29 @@
 
   a {
     text-decoration: underline;
+  }
+}
+
+@layer utilities {
+  .prose {
+    --tw-prose-body: var(--color-primary);
+    --tw-prose-headings: var(--color-primary);
+    --tw-prose-links: var(--color-primary);
+    --tw-prose-code: var(--color-primary);
+    --tw-prose-kbd: var(--color-primary);
+    --tw-prose-bold: var(--color-primary);
+    --tw-prose-quotes: var(--color-primary);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .prose {
+      --tw-prose-body: var(--color-primary);
+      --tw-prose-headings: var(--color-primary);
+      --tw-prose-links: var(--color-primary);
+      --tw-prose-code: var(--color-primary);
+      --tw-prose-kbd: var(--color-primary);
+      --tw-prose-bold: var(--color-primary);
+      --tw-prose-quotes: var(--color-primary);
+    }
   }
 }

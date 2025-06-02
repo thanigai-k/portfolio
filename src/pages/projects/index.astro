@@ -27,7 +27,7 @@ const posts = (await getCollection("projects")).sort(
               <li class="mb-4 relative group">
                 <h3>
                   <a
-                    href={`/blog/${post.id}/`}
+                    href={`/projects/${post.id}/`}
                     class="after:absolute after:inset-0 no-underline group-hover:underline"
                   >
                     {post.data.title}
