@@ -1,49 +1,113 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import { getCollection } from "astro:content";
+
+const blogPosts = (await getCollection("blog")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const WORK_EXPERIENCE_CONTENT = [
+  {
+    title: "Senior Frontend Engineer",
+    company: "Setmore",
+    date: "2024 - Present",
+  },
+  {
+    title: "Frontend Engineer",
+    company: "AnywhereWorks",
+    date: "2022 - 2024",
+  },
+];
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to
-				<a href="https://docs.astro.build/">read the docs</a>
-				or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out
-				<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a>
-				by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
-		<Footer />
-	</body>
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header />
+    <main class="space-y-10">
+      <section>
+        <div>
+          <article>
+            I design systems that make product teams move faster — without
+            breaking accessibility, performance, or flexibility
+          </article>
+        </div>
+      </section>
+      <section>
+        <h2 class="text-xl font-medium mb-4">Now</h2>
+        <div>
+          <article class="space-y-2">
+            <p>
+              I'm maintaining the <a href="https://www.earth.anywhere.co/"
+                >Earth Design System</a
+              >, used across multiple teams. I've improved accessibility and
+              added CI for visual and a11y testing.
+            </p>
+            <p>
+              I also built a Style API for easy customization and run workshops
+              to support adoption and contribution.
+            </p>
+          </article>
+        </div>
+      </section>
+      <section>
+        <h2 class="text-xl font-medium mb-4">Blog</h2>
+        <ul>
+          {
+            blogPosts.map((post) => (
+              <li class="mb-4 relative group">
+                <h3>
+                  <a
+                    href={`/blog/${post.id}/`}
+                    class="after:absolute after:inset-0 no-underline group-hover:underline"
+                  >
+                    {post.data.title}
+                  </a>
+                </h3>
+                <p class="text-secondary">{post.data.description}</p>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+      <section>
+        <h2 class="text-xl font-medium mb-4">Work Experience</h2>
+        <ul class="space-y-4">
+          {
+            WORK_EXPERIENCE_CONTENT.map(({ title, company, date }) => (
+              <li
+                class="
+                border border-tertiary p-4 rounded-2xl flex flex-col
+                gap-y-3 sm: sm:flex-row sm:items-center sm:justify-between
+                "
+              >
+                <div>
+                  <h3 class="text-lg">{title}</h3>
+                  <p class="text-secondary">{company}</p>
+                </div>
+                <p class="text-secondary text-sm">{date}</p>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+      <section>
+        <h2 class="text-xl font-medium mb-4">More</h2>
+        <div>
+          <article>
+            You can explore my projects here where I do expereiment with
+            interfaces. I curate a lot of <a href="/tools">tools</a> to make my life
+            easier.
+          </article>
+        </div>
+      </section>
+      <Footer />
+    </main>
+  </body>
 </html>
