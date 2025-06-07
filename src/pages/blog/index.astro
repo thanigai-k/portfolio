@@ -24,16 +24,27 @@ const posts = (await getCollection("blog")).sort(
         <ul>
           {
             posts.map((post) => (
-              <li class="mb-4 relative group">
-                <h3>
-                  <a
-                    href={`/blog/${post.id}/`}
-                    class="after:absolute after:inset-0 no-underline group-hover:underline"
-                  >
-                    {post.data.title}
-                  </a>
-                </h3>
-                <p class="text-secondary">{post.data.description}</p>
+              <li class="mb-4 relative group flex justify-between items-center">
+                <div>
+                  <h3>
+                    <a
+                      href={`/blog/${post.id}/`}
+                      class="after:absolute after:inset-0 no-underline group-hover:underline"
+                    >
+                      {post.data.title}
+                    </a>
+                  </h3>
+                  <p class="text-secondary">{post.data.excerpt}</p>
+                </div>
+                <time
+                  datetime={post.data.pubDate.toISOString()}
+                  class="text-sm text-secondary"
+                >
+                  {post.data.pubDate.toLocaleDateString("en-us", {
+                    year: "numeric",
+                    month: "short",
+                  })}
+                </time>
               </li>
             ))
           }

@@ -9,16 +9,25 @@ const blogPosts = (await getCollection("blog")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 
-const WORK_EXPERIENCE_CONTENT = [
+const WORK_EXPERIENCE_CONTENT: {
+  title: string;
+  company: string;
+  date: string;
+}[] = [
   {
     title: "Senior Frontend Engineer",
-    company: "Setmore",
-    date: "2024 - Present",
+    company: "Full Creative",
+    date: "2023 - Present",
   },
   {
     title: "Frontend Engineer",
     company: "AnywhereWorks",
-    date: "2022 - 2024",
+    date: "2020 - 2023",
+  },
+  {
+    title: "Web Developer",
+    company: "Setmore",
+    date: "2018 - 2020",
   },
 ];
 ---
@@ -44,8 +53,10 @@ const WORK_EXPERIENCE_CONTENT = [
         <div>
           <article class="space-y-2">
             <p>
-              I'm maintaining the <a href="https://www.earth.anywhere.co/"
-                >Earth Design System</a
+              I'm maintaining the <a
+                href="https://earth.anywhere.co/"
+                target="_blank"
+                rel="noopener noreferrer">Earth Design System</a
               >, used across multiple teams. I've improved accessibility and
               added CI for visual and a11y testing.
             </p>
@@ -98,7 +109,7 @@ const WORK_EXPERIENCE_CONTENT = [
         </ul>
       </section>
       <section>
-        <h2 class="text-xl font-medium mb-4">More</h2>
+        <h2 class="text-xl font-medium mb-4">Beyond</h2>
         <div>
           <article>
             You can explore my projects here where I do expereiment with

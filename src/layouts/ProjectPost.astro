@@ -18,25 +18,39 @@ const { title, description, pubDate, heroImage } = Astro.props;
 
   <body>
     <Header />
-    <main class="text-secondary">
-      <div class="flex justify-between mb-5">
-        <a href="/blog">Back to blog</a>
+    <main class="mb-10">
+      <div class="flex text-sm mb-5 text-secondary gap-1">
+        <span>←</span>
+        <a href="/blog" class="no-underline">Back to blog</a>
       </div>
       <article>
-        <h1 class="text-primary">{title}</h1>
-        <p class="text-sm mb-3"><FormattedDate date={pubDate} /></p>
-        <p>{description}</p>
+        <h1 class="text-primary text-lg font-medium">{title}</h1>
+        <p class="text-sm text-secondary">
+          <FormattedDate date={pubDate} />
+        </p>
         {
           heroImage && (
-            <img
-              width={1020}
-              height={500}
-              src={heroImage}
-              class="object-fit w-full h-[200px] mt-5 mb-10"
-              alt=""
-            />
+            <figure>
+              <img
+                width={1020}
+                height={500}
+                src={heroImage}
+                class="w-full mt-5 mb-10 aspect-video"
+                alt=""
+              />
+              <figcaption class="text-secondary italic">
+                {description}
+              </figcaption>
+            </figure>
           )
         }
+        <div class="my-10 text-center">
+          <a
+            href="#"
+            class="px-4 py-2 bg-gradient-to-t from-white/15 hover:from-white/20 transition-colors to-transparent rounded-full no-underline"
+            >View Project</a
+          >
+        </div>
         <CustomProse>
           <slot />
         </CustomProse>

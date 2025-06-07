@@ -74,7 +74,7 @@
   }
 
   body {
-    @apply max-w-xl mx-auto py-5 md:py-10 font-extralight text-primary bg-canvas;
+    @apply max-w-2xl mx-auto px-5 lg:px-0 py-5 md:py-10 font-extralight text-primary bg-canvas;
   }
 
   a {
@@ -100,6 +100,28 @@
       --tw-prose-links: var(--color-primary);
       --tw-prose-code: var(--color-primary);
       --tw-prose-kbd: var(--color-primary);
+      --tw-prose-bold: var(--color-primary);
+      --tw-prose-quotes: var(--color-primary);
+    }
+  }
+
+  .prose-secondary {
+    --tw-prose-body: var(--color-secondary);
+    --tw-prose-headings: var(--color-secondary);
+    --tw-prose-links: var(--color-secondary);
+    --tw-prose-code: var(--color-secondary);
+    --tw-prose-kbd: var(--color-secondary);
+    --tw-prose-bold: var(--color-primary);
+    --tw-prose-quotes: var(--color-primary);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .prose-secondary {
+      --tw-prose-body: var(--color-secondary);
+      --tw-prose-headings: var(--color-secondary);
+      --tw-prose-links: var(--color-secondary);
+      --tw-prose-code: var(--color-secondary);
+      --tw-prose-kbd: var(--color-secondary);
       --tw-prose-bold: var(--color-primary);
       --tw-prose-quotes: var(--color-primary);
     }
