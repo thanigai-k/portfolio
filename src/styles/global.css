@@ -31,6 +31,8 @@
   --color-tertiary: hsl(0, 0%, 30%);
 
   --border-color-tertiary: hsl(0, 0%, 20%);
+
+  --animate-wave-hands: wave-hands 1s ease-in-out 3;
 }
 
 :root {
@@ -83,6 +85,18 @@
 
   a {
     text-decoration: underline;
+  }
+
+  @keyframes wave-hands {
+    0% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(20deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
   }
 }
 
