@@ -27,11 +27,11 @@ const recentProjectPosts = projectPosts.slice(0, PROJECT_POSTS_LIMIT);
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
-  <body>
+  <body class="text-lg">
     <Header />
     <Stack class="gap-16">
       <section class="group">
-        <h1 class="text-3xl font-medium mb-4">
+        <h1 class="text-4xl font-medium mb-4">
           Hey there! I'm Thanigai
           <span class="group-hover:animate-wave-hands inline-block">👋</span>
         </h1>
@@ -49,7 +49,7 @@ const recentProjectPosts = projectPosts.slice(0, PROJECT_POSTS_LIMIT);
         </Stack>
       </section>
       <section>
-        <h2 class="text-2xl font-medium mb-4">Currently</h2>
+        <h2 class="text-3xl font-medium mb-4">Currently</h2>
         <Stack class="gap-y-2">
           <p>
             I'm maintaining the <a
@@ -67,7 +67,7 @@ const recentProjectPosts = projectPosts.slice(0, PROJECT_POSTS_LIMIT);
       </section>
       <section>
         <div class="flex items-center justify-between mb-4">
-          <h2 class="text-2xl font-medium">Thoughts, Ideas and Writings</h2>
+          <h2 class="text-3xl font-medium">Thoughts, Ideas and Writings</h2>
           <a href="/blog" class="text-secondary">View all</a>
         </div>
         <ul>
@@ -77,12 +77,12 @@ const recentProjectPosts = projectPosts.slice(0, PROJECT_POSTS_LIMIT);
                 <h3>
                   <a
                     href={`/blog/${post.id}/`}
-                    class="after:absolute after:inset-0 no-underline group-hover:underline"
+                    class="after:absolute after:inset-0 no-underline group-hover:underline text-xl"
                   >
                     {post.data.title}
                   </a>
                 </h3>
-                <p class="text-secondary">{post.data.description}</p>
+                <p class="text-secondary text-lg">{post.data.description}</p>
               </li>
             ))
           }
@@ -91,7 +91,7 @@ const recentProjectPosts = projectPosts.slice(0, PROJECT_POSTS_LIMIT);
       <section>
         <div>
           <div class="flex items-center justify-between mb-4">
-            <h2 class="text-2xl font-medium">Selected Projects</h2>
+            <h2 class="text-3xl font-medium">Selected Projects</h2>
             <a href="/projects" class="text-secondary">View all</a>
           </div>
           <div>
@@ -113,8 +113,10 @@ const recentProjectPosts = projectPosts.slice(0, PROJECT_POSTS_LIMIT);
                         />
                       </figure>
                       <Stack class="gap-2 px-4 py-6">
-                        <h3 class="font-medium">{project.data.title}</h3>
-                        <p class="text-secondary">{project.data.excerpt}</p>
+                        <h3 class="text-xl">{project.data.title}</h3>
+                        <p class="text-secondary text-lg">
+                          {project.data.excerpt}
+                        </p>
                       </Stack>
                     </a>
                   );
@@ -125,11 +127,11 @@ const recentProjectPosts = projectPosts.slice(0, PROJECT_POSTS_LIMIT);
         </div>
       </section>
       <section>
-        <h2 class="text-2xl font-medium mb-4">Career Milestones</h2>
+        <h2 class="text-3xl font-medium mb-4">Career Milestones</h2>
         <WorkExperience />
       </section>
       <section>
-        <h2 class="text-2xl font-medium mb-4">Beyond</h2>
+        <h2 class="text-3xl font-medium mb-4">Beyond</h2>
         <div>
           <article>
             You can explore my projects here where I do expereiment with
@@ -138,7 +140,7 @@ const recentProjectPosts = projectPosts.slice(0, PROJECT_POSTS_LIMIT);
           </article>
         </div>
       </section>
+      <Footer />
     </Stack>
-    <Footer />
   </body>
 </html>

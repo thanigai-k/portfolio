@@ -5,6 +5,7 @@ import Footer from "../../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
 import { getCollection } from "astro:content";
 import FormattedDate from "../../components/FormattedDate.astro";
+import Stack from "../../layouts/Stack.astro";
 
 const posts = (await getCollection("projects")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
@@ -16,30 +17,32 @@ const posts = (await getCollection("projects")).sort(
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
-  <body>
+  <body class="text-lg">
     <Header />
-    <main class="mb-10">
-      <h1 class="text-3xl font-medium mb-4">Projects</h1>
+    <Stack class="gap-12">
       <section>
-        <ul>
-          {
-            posts.map((post) => (
-              <li class="mb-4 relative group">
-                <h3 class="text-lg">
-                  <a
-                    href={`/projects/${post.id}/`}
-                    class="after:absolute after:inset-0 no-underline group-hover:underline"
-                  >
-                    {post.data.title}
-                  </a>
-                </h3>
-                <p class="text-secondary line-clamp-2">{post.data.excerpt}</p>
-              </li>
-            ))
-          }
-        </ul>
+        <h1 class="text-4xl font-medium mb-4">Thanigai Builds</h1>
+        <Stack class="gap-16">
+          <Stack class="gap-2">
+            {
+              posts.map((post) => (
+                <div class="mb-4 relative group">
+                  <h3 class="text-xl">
+                    <a
+                      href={`/projects/${post.id}/`}
+                      class="after:absolute after:inset-0 no-underline group-hover:underline"
+                    >
+                      {post.data.title}
+                    </a>
+                  </h3>
+                  <p class="text-secondary line-clamp-2">{post.data.excerpt}</p>
+                </div>
+              ))
+            }
+          </Stack>
+        </Stack>
       </section>
-    </main>
-    <Footer />
+      <Footer />
+    </Stack>
   </body>
 </html>

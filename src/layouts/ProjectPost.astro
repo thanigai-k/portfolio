@@ -16,16 +16,16 @@ const { title, description, heroImage, visitLink } = Astro.props;
   <head>
     <BaseHead title={title} description={description} />
   </head>
-  <body>
+  <body class="text-lg">
     <Header />
-    <main class="text-secondary">
+    <main>
       <Stack class="gap-8">
-        <div class="flex text-sm gap-1">
+        <div class="flex text-md gap-1 text-secondary">
           <span>←</span>
           <a href="/projects" class="no-underline">Projects</a>
         </div>
         <Stack class="gap-2">
-          <h1 class="text-primary text-3xl font-medium">{title}</h1>
+          <h1 class="text-primary text-4xl font-medium">{title}</h1>
           <p>
             {description}
           </p>
@@ -60,8 +60,8 @@ const { title, description, heroImage, visitLink } = Astro.props;
             <slot />
           </CustomProse>
         </div>
+        <Footer />
       </Stack>
     </main>
-    <Footer />
   </body>
 </html>
