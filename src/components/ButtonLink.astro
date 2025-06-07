@@ -1,0 +1,14 @@
+---
+const { href, class: className } = Astro.props;
+---
+
+<a
+  href={href}
+  target="_blank"
+  rel="noopener noreferrer"
+  class={`px-4 py-1 bg-gradient-to-t from-teal-900/20 hover:from-teal-900/40
+                transition-colors to-transparent rounded-full no-underline inline-flex items-center
+                group duration-500 ${className}`}
+>
+  <slot />
+</a>

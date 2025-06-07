@@ -5,10 +5,11 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 import CustomProse from "./CustomProse.astro";
+import Stack from "./Stack.astro";
 
 type Props = CollectionEntry<"blog">["data"];
 
-const { title, description, pubDate, excerpt, heroImage } = Astro.props;
+const { title, description, pubDate, heroImage } = Astro.props;
 ---
 
 <html lang="en">
@@ -17,37 +18,38 @@ const { title, description, pubDate, excerpt, heroImage } = Astro.props;
   </head>
   <body>
     <Header />
-    <main class="mb-10 text-secondary">
-      <div class="flex text-sm mb-5 text-secondary gap-1">
-        <span>←</span>
-        <a href="/blog" class="no-underline">Back to blog</a>
-      </div>
-      <article>
-        <h1 class="text-primary text-lg font-medium">{title}</h1>
-        <p class="text-sm text-secondary">
-          {description}
-        </p>
+    <main class="text-secondary">
+      <Stack class="gap-8">
+        <div class="flex text-sm gap-1">
+          <span>←</span>
+          <a href="/blog" class="no-underline">Blog</a>
+        </div>
+        <Stack class="gap-2">
+          <FormattedDate date={pubDate} class="text-sm" />
+          <h1 class="text-primary text-3xl font-medium">{title}</h1>
+          <p>
+            {description}
+          </p>
+        </Stack>
         {
           heroImage && (
-            <figure class="my-10">
+            <figure>
               <img
                 width={1020}
                 height={500}
                 src={heroImage}
-                class="w-full mt-5 mb-10 aspect-video"
-                alt=""
+                class="w-full aspect-video"
+                alt={description}
               />
-              <figcaption class="text-secondary italic">
-                {description}
-              </figcaption>
             </figure>
           )
         }
-
-        <CustomProse>
-          <slot />
-        </CustomProse>
-      </article>
+        <div>
+          <CustomProse>
+            <slot />
+          </CustomProse>
+        </div>
+      </Stack>
     </main>
     <Footer />
   </body>

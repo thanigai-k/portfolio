@@ -57,6 +57,10 @@
 
 @layer base {
   /* Remove Safari input shadow on mobile */
+  h1,
+  h2 {
+    @apply font-serif;
+  }
   input[type="text"],
   input[type="email"] {
     -webkit-appearance: none;
@@ -84,24 +88,24 @@
 
 @layer utilities {
   .prose {
-    --tw-prose-body: var(--color-primary);
+    --tw-prose-body: var(--color-secondary);
     --tw-prose-headings: var(--color-primary);
-    --tw-prose-links: var(--color-primary);
-    --tw-prose-code: var(--color-primary);
-    --tw-prose-kbd: var(--color-primary);
-    --tw-prose-bold: var(--color-primary);
-    --tw-prose-quotes: var(--color-primary);
+    --tw-prose-links: var(--color-secondary);
+    --tw-prose-code: var(--color-secondary);
+    --tw-prose-kbd: var(--color-secondary);
+    --tw-prose-bold: var(--color-secondary);
+    --tw-prose-quotes: var(--color-secondary);
   }
 
   @media (prefers-color-scheme: dark) {
     .prose {
-      --tw-prose-body: var(--color-primary);
+      --tw-prose-body: var(--color-secondary);
       --tw-prose-headings: var(--color-primary);
-      --tw-prose-links: var(--color-primary);
-      --tw-prose-code: var(--color-primary);
-      --tw-prose-kbd: var(--color-primary);
-      --tw-prose-bold: var(--color-primary);
-      --tw-prose-quotes: var(--color-primary);
+      --tw-prose-links: var(--color-secondary);
+      --tw-prose-code: var(--color-secondary);
+      --tw-prose-kbd: var(--color-secondary);
+      --tw-prose-bold: var(--color-secondary);
+      --tw-prose-quotes: var(--color-secondary);
     }
   }
 

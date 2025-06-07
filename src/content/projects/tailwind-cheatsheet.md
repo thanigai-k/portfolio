@@ -4,6 +4,7 @@ excerpt: "A cheatsheet for Tailwind CSS which I created to make it easier for me
 description: "A cheatsheet for Tailwind CSS which I created to make it easier for me to remember the classes. Lorem ipsum dolor sit amet consectetur adipisicing elit."
 pubDate: "March 08 2025"
 heroImage: "/project-redesigning-the-calendar-component.png"
+visitLink: "https://tailwind-cheatsheet.vercel.app"
 ---
 
 ## Challenges
