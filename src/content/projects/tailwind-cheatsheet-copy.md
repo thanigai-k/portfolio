@@ -3,7 +3,7 @@ title: "Tailwind Cheatsheet"
 excerpt: "A cheatsheet for Tailwind CSS which I created to make it easier for me to remember the classes."
 description: "A cheatsheet for Tailwind CSS which I created to make it easier for me to remember the classes. Lorem ipsum dolor sit amet consectetur adipisicing elit."
 pubDate: "March 08 2025"
-heroImage: "/setmore-home-page.png"
+heroImage: "/portfolio/setmore-home-page.png"
 visitLink: "https://tailwind-cheatsheet.vercel.app"
 ---
 

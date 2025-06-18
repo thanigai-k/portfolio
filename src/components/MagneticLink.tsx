@@ -18,7 +18,15 @@ export const MagneticLink: React.FC<MagneticButtonProps> = ({
   const hoverRef = useRef(false);
 
   // if mobile dont do anything
-  if (typeof window === "undefined") return <a href={href}>{children}</a>;
+  if (typeof window === "undefined")
+    return (
+      <a
+        href={href}
+        className="inline-block transition-transform will-change-transform "
+      >
+        {children}
+      </a>
+    );
 
   useEffect(() => {
     const el = buttonRef.current;
