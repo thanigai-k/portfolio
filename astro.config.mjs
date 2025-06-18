@@ -11,7 +11,7 @@ import react from "@astrojs/react";
 // https://astro.build/config
 export default defineConfig({
   site: "https://thanigai-k.github.io",
-  base: "portfolio-site",
+  base: "portfolio",
   integrations: [mdx(), sitemap(), react(), icon()],
   vite: {
     plugins: [tailwindcss()],
