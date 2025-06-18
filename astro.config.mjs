@@ -7,11 +7,12 @@ import tailwindcss from "@tailwindcss/vite";
 import icon from "astro-icon";
 
 import react from "@astrojs/react";
+import { SITE_BASE_PATH, SITE_BASE_URL } from "./src/consts";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://thanigai-k.github.io",
-  base: "portfolio",
+  site: SITE_BASE_URL,
+  base: SITE_BASE_PATH,
   integrations: [mdx(), sitemap(), react(), icon()],
   vite: {
     plugins: [tailwindcss()],

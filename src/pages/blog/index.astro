@@ -2,7 +2,7 @@
 import BaseHead from "../../components/BaseHead.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
+import { SITE_TITLE, SITE_DESCRIPTION, SITE_BASE_PATH } from "../../consts";
 import { getCollection } from "astro:content";
 import Stack from "../../layouts/Stack.astro";
 
@@ -29,7 +29,7 @@ const posts = (await getCollection("blog")).sort(
                   <div class="basis-4/6 md:basis-5/6">
                     <h3 class="text-xl">
                       <a
-                        href={`/blog/${post.id}/`}
+                        href={`/${SITE_BASE_PATH}/blog/${post.id}/`}
                         class="after:absolute after:inset-0 no-underline group-hover:underline"
                       >
                         {post.data.title}
